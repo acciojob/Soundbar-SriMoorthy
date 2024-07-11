@@ -1,17 +1,14 @@
 //your JS code here. If required.
 document.addEventListener('DOMContentLoaded', () => {
     const buttons = document.querySelectorAll('.btn');
-    const sounds = {};
-
-    const soundFiles = ['C:\Users\sidsr\Desktop\Sriram\applause2.mp3', 'boo', 'gasp', 'tada', 'victory', 'wrong'];
-
-    soundFiles.forEach(sound => {
-        const audio = new Audio(`sounds/${sound}.mp3`);
-        audio.onerror = () => {
-            console.error(`Failed to load audio file: sounds/${sound}.mp3`);
-        };
-        sounds[sound] = audio;
-    });
+    const sounds = {
+        applause: document.getElementById('applause'),
+        boo: document.getElementById('boo'),
+        gasp: document.getElementById('gasp'),
+        tada: document.getElementById('tada'),
+        victory: document.getElementById('victory'),
+        wrong: document.getElementById('wrong')
+    };
 
     buttons.forEach(button => {
         button.addEventListener('click', () => {
@@ -33,8 +30,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-Cypress.on('uncaught:exception', (err, runnable) => {
-    // returning false here prevents Cypress from failing the test
-    return false;
+
+// cypress/integration/tests/test.spec.js
+describe('Sound Board', () => {
+    it('should play the sound when a button is clicked', () => {
+        cy.visit('/main.html');
+        cy.get('.btn').first().click();
+        cy.get('audio').first().should('have.prop', 'paused', false);
+    });
 });
+
 
