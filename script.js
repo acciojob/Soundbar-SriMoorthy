@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const buttons = document.querySelectorAll('.btn');
     const sounds = {};
 
-    const soundFiles = ['applause', 'boo', 'gasp', 'tada', 'victory', 'wrong'];
+    const soundFiles = ['C:\Users\sidsr\Desktop\Sriram\applause2.mp3', 'boo', 'gasp', 'tada', 'victory', 'wrong'];
 
     soundFiles.forEach(sound => {
         const audio = new Audio(`sounds/${sound}.mp3`);
