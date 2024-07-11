@@ -1,7 +1,7 @@
 //your JS code here. If required.
 const buttons = document.querySelectorAll('.btn');
 const sounds = {
-    applause: new Audio('sounds/applause.mp3'),
+    applause: new Audio('sounds/applause-180037.mp3'),
     boo: new Audio('sounds/boo.mp3'),
     gasp: new Audio('sounds/gasp.mp3'),
     tada: new Audio('sounds/tada.mp3'),
